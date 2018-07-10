@@ -12,6 +12,11 @@ import java.util.Locale;
 
 public class MainActivity extends Activity {
 
+	TextView txtTime;
+	TextView txtWeek;
+	TextView txtDate;
+	TextView txtLunar;
+
 	Handler handler = new Handler();
 
 	Runnable runnable = () -> {
@@ -23,6 +28,11 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		txtTime = findViewById(R.id.txtTime);
+		txtWeek = findViewById(R.id.txtWeek);
+		txtDate = findViewById(R.id.txtDate);
+		txtLunar = findViewById(R.id.txtLunar);
 	}
 
 	@Override
@@ -40,11 +50,6 @@ public class MainActivity extends Activity {
 	}
 
 	void show() {
-		TextView txtTime = findViewById(R.id.txtTime);
-		TextView txtWeek = findViewById(R.id.txtWeek);
-		TextView txtDate = findViewById(R.id.txtDate);
-		TextView txtLunar = findViewById(R.id.txtLunar);
-
 		Calendar now = Calendar.getInstance();
 		txtTime.setText(new SimpleDateFormat("HH:mm:ss").format(new Date()));
 		txtWeek.setText(now.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.getDefault()));
